@@ -1,14 +1,21 @@
-import React from 'react';
-import Button from "./components/Button";
-import Counter from "./components/Counter";
+import React, { useState } from 'react';
+import Score from "./components/Score";
 
-const App = () => {
+function App() {
+    const [count, setCount] = useState(0);
+
+    const handleButtonClick = () => {
+        setCount(count + 1);
+    }
+
     return (
         <div>
-            <Button label="Click me" onClick={() => alert('Button clicked!')} />
-            <Counter />
+            <h1>My Clicker Game</h1>
+            <p>Count: {count}</p>
+            <button onClick={handleButtonClick}>Click me!</button>
+            <Score score={count}/>
         </div>
     );
-};
+}
 
 export default App;
